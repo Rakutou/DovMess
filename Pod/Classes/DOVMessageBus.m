@@ -170,15 +170,24 @@ typedef void (*IMPFuncType)(id, SEL, void *);
     }
     
     BOOL isHandled = NO;
-    Method method = class_getInstanceMethod(clazz, sel);
-    if (method) {
-        IMPFuncType imp = (IMPFuncType)method_getImplementation(method);
-        
-        if (imp) {
-            imp ( clazz, sel, (__bridge void *)(message) );
-            isHandled = YES;
+    if ([inst respondsToSelector:sel]) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Warc-performSelector-leaks"
+        [inst performSelector:sel withObject:message];
+#pragma clang diagnostic pop
+        isHandled = YES;
+    } else {
+        Method method = class_getInstanceMethod(clazz, sel);
+        if (method) {
+            IMPFuncType imp = (IMPFuncType)method_getImplementation(method);
+            
+            if (imp) {
+                imp ( clazz, sel, (__bridge void *)(message) );
+                isHandled = YES;
+            }
         }
     }
+    
     return isHandled;
 }
 

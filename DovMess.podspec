@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "DovMess"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "DovMess is a framework that can pass message from top level UIResponder to the UIResponder where you observe the message."
 
   s.description      = <<-DESC
