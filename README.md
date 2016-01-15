@@ -1,4 +1,10 @@
 # DovMess
+
+[![CI Status](http://img.shields.io/travis/Eleme-IMF/DovMess.svg?style=flat)](https://travis-ci.org/Eleme-IMF/DovMess)
+[![Version](https://img.shields.io/cocoapods/v/DovMess.svg?style=flat)](http://cocoapods.org/pods/DovMess)
+[![License](https://img.shields.io/cocoapods/l/DovMess.svg?style=flat)](http://cocoapods.org/pods/DovMess)
+[![Platform](https://img.shields.io/cocoapods/p/DovMess.svg?style=flat)](http://cocoapods.org/pods/DovMess)  
+
 -----------
 &nbsp;&nbsp;&nbsp;&nbsp;An easy way to send callback message from UIView to UIViewController.  
 
